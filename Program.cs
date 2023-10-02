@@ -6,11 +6,20 @@ class Personal
 {
     public string name;
     public int number;
-    public List<Personal> pList;
+    
     public Personal(string name, int number)
     {
         this.name = name;
         this.number = number;
+        
+    }
+}
+class PersonalList
+{
+    
+    List<Personal> pList;
+    public PersonalList()
+    {
         pList = new List<Personal>();
     }
     public void Add(string name, int number)
@@ -21,11 +30,11 @@ class Personal
     {
         for(int i = 0; i < pList.Count; i++)
         {
-            Console.WriteLine($"Namn: {pList[i].name} nummer {pList[i].number}");
+            Console.WriteLine($"Namn: {pList[i].name}: {pList[i].number}");
         }
     }
     
-}
+}/*
 class Utryckning
 {
     public string crime; // typ av brott
@@ -83,12 +92,17 @@ public class Rapport
     }
 
 }
-
+*/
 
 class Program
 {
     public static void Main()
     {
+        PersonalList pList = new PersonalList();
+        pList.Add("calle", 1231);
+        pList.Add("Milton", 8469);
+        pList.Add("Brian", 6263);
+
         Console.WriteLine("1. Skriv rapport");
         Console.WriteLine("2. Personal");
         Console.WriteLine("3. Rapporter");
@@ -101,7 +115,7 @@ class Program
                 
                 break;
             case "2":
-                
+                pList.Print();
                 break;
             case "3":
 
