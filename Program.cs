@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System;
 using System.IO.Pipes;
-// Krister testar
+// Krister testar hej
 class Personal
 {
     public string name;
