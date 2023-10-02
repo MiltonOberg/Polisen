@@ -1,17 +1,25 @@
 ﻿using System.Diagnostics;
 using System;
+using System.IO.Pipes;
 
 class Personal
 {
     public string name;
     public int number;
+    public List<Personal> pList;
     public Personal(string name, int number)
     {
         this.name = name;
         this.number = number;
+        pList = new List<Personal>();
     }
+    public void Add(string name, int number)
+    {
+        pList.Add(new Personal(name, number));
+    }
+    
 }
-class Utrycking
+class Utryckning
 {
     public string crime; // typ av brott
     public int time; //vilken tid brottet inträffade.
@@ -19,13 +27,14 @@ class Utrycking
     public string poliser; //Vilka poliser som deltog
     public string plats; // plats .
 
-    public void Utryckning(string crime, string plats, string poliser, int time)
+    public Utryckning(string crime, string plats, string poliser, int time)
     {
         this.crime = crime;
         this.plats = plats;
         this.poliser = poliser;
         this.time = time;
     }
+    
 
 }
         public class Rapport
@@ -57,6 +66,19 @@ class Utrycking
     }    
      
 
+    public void Rapportering()
+    {
+
+    Console.WriteLine("Rapportnummer");
+    Console.WriteLine("Datum");
+    Console.WriteLine("Station");
+    Console.WriteLine("Beskrivning");
+    }
+    
+    
+ 
+}
+
 
 class Meny
 {
@@ -74,7 +96,7 @@ class Meny
                 
                 break;
             case "2":
-
+                
                 break;
             case "3":
 
@@ -83,5 +105,14 @@ class Meny
             
                 break;
         }
+    }
+}
+
+class Program
+{
+    public static void Main()
+    {
+        
+        
     }
 }
