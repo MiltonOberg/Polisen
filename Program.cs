@@ -28,26 +28,35 @@ class Utrycking
     }
 
 }
-class Rapport
-{
+        public class Rapport
+        {
  // ska innehålla rapportnummer, datum, station samt beskrivning
-    int RapportNummer = Int32.Parse(Console.WriteLine("Skriv in rapport nummer (6 nummer): "));
-    string Datum; 
-    string station;
-    string Beskrivning;
     
-    public void Rapportering()
-    {
+        //fält
+        int RapportNummer;
+        string Datum;
+        string Plats;
+        string Beskrivning;
+
+        void Rapportering()
+        {
+            Console.WriteLine("Rapport ID: ");
+            RapportNummer = Convert.ToInt32();
+            Console.WriteLine("Datum: ");
+            Datum = Console.ReadLine();
+            Console.WriteLine("Plats: ");
+            Plats = Console.Readline();
+            Console.WriteLine("Beskriv händelseförloppet: ");
+            Beskrivning = Console.ReadLine();        
+
+            Console.WriteLine("Rapport ID: " RapportNummer "/n" + "Datum: " + Datum + "/nHändelse: " + Beskrivning);
+            System.Console.WriteLine("Stämmer detta? J/N");
+            Console.ReadLine();
+        }
         
-    Console.WriteLine("Rapportnummer");
-    Console.WriteLine("Datum");
-    Console.WriteLine("Station");
-    Console.WriteLine("Beskrivning");
-    }
-    
-    
- 
-}
+    }    
+     
+
 
 class Meny
 {
