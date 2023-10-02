@@ -2,6 +2,7 @@
 using System;
 using System.IO.Pipes;
 using System.Runtime.InteropServices;
+using System.ComponentModel;
 class Personal
 {
     public string name;
@@ -34,23 +35,34 @@ class PersonalList
         }
     }
     
-}/*
+}
 class Utryckning
 {
     public string crime; // typ av brott
     public int time; //vilken tid brottet inträffade.
     
-    public string poliser; //Vilka poliser som deltog
+    public string cops; //Vilka poliser som deltog
     public string plats; // plats .
-
-    public Utryckning(string crime, string plats, string poliser, int time)
+    
+    public Utryckning(string crime, string plats, string cops, int time)
     {
         this.crime = crime;
         this.plats = plats;
-        this.poliser = poliser;
+        this.cops = cops;
         this.time = time;
     }
-    
+class UtList
+{
+    List<Utryckning> utryckList;
+    public UtList()
+    {
+        utryckList = new List<Utryckning>();
+    }
+    public void Add(string crime, string plats, string cops, int time)
+    {
+        utryckList.Add(new Utryckning(crime, plats, cops, time));
+    }
+}
 
 }
         public class Rapport
@@ -104,7 +116,7 @@ class Meny
                 
                 break;
             case "2":
-                pList.Print();
+                
                 break;
             case "3":
 
