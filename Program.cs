@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using System;
 using System.IO.Pipes;
+using System.Runtime.InteropServices;
 class Personal
 {
     public string name;
@@ -15,7 +16,13 @@ class Personal
     public void Add(string name, int number)
     {
         pList.Add(new Personal(name, number));
-        Console.WriteLine("hej");
+    }
+    public void Print()
+    {
+        for(int i = 0; i < pList.Count; i++)
+        {
+            Console.WriteLine($"Namn: {pList[i].name} nummer {pList[i].number}");
+        }
     }
     
 }
@@ -37,52 +44,50 @@ class Utryckning
     
 
 }
-        public class Rapport
-        {
- // ska innehålla rapportnummer, datum, station samt beskrivning
-    
-        //fält
-        int RapportNummer;
-        string Datum;
-        string Plats;
-        string Beskrivning;
+public class Rapport
+{
+// ska innehålla rapportnummer, datum, station samt beskrivning
 
-        void Rapportering()
-        {
-            Console.WriteLine("Rapport ID: ");
-            RapportNummer = Convert.ToInt32();
-            Console.WriteLine("Datum: ");
-            Datum = Console.ReadLine();
-            Console.WriteLine("Plats: ");
-            Plats = Console.Readline();
-            Console.WriteLine("Beskriv händelseförloppet: ");
-            Beskrivning = Console.ReadLine();        
+//fält
+    int RapportNummer;
+    string Datum;
+    string Plats;
+    string Beskrivning;
 
-            Console.WriteLine("Rapport ID: " RapportNummer "/n" + "Datum: " + Datum + "/nHändelse: " + Beskrivning);
-            System.Console.WriteLine("Stämmer detta? J/N");
-            Console.ReadLine();
-        }
-        
-    }    
-     
+    void Rapportering()
+    {
+        Console.WriteLine("Rapport ID: ");
+        RapportNummer = Convert.ToInt32();
+        Console.WriteLine("Datum: ");
+        Datum = Console.ReadLine();
+        Console.WriteLine("Plats: ");
+        Plats = Console.Readline();
+        Console.WriteLine("Beskriv händelseförloppet: ");
+        Beskrivning = Console.ReadLine();        
+
+        Console.WriteLine("Rapport ID: " RapportNummer "/n" + "Datum: " + Datum + "/nHändelse: " + Beskrivning);
+        System.Console.WriteLine("Stämmer detta? J/N");
+        Console.ReadLine();
+    }
+
+
+
 
     public void Rapportering()
     {
 
-    Console.WriteLine("Rapportnummer");
-    Console.WriteLine("Datum");
-    Console.WriteLine("Station");
-    Console.WriteLine("Beskrivning");
+        Console.WriteLine("Rapportnummer");
+        Console.WriteLine("Datum");
+        Console.WriteLine("Station");
+        Console.WriteLine("Beskrivning");
     }
-    
-    
- 
+
 }
 
 
-class Meny
+class Program
 {
-    public void Menyn()
+    public static void Main()
     {
         Console.WriteLine("1. Skriv rapport");
         Console.WriteLine("2. Personal");
@@ -105,14 +110,6 @@ class Meny
             
                 break;
         }
-    }
-}
-
-class Program
-{
-    public static void Main()
-    {
-        
         
     }
 }
