@@ -16,6 +16,7 @@ class Personal
     public void Add(string name, int number)
     {
         pList.Add(new Personal(name, number));
+        Console.WriteLine("hej");
     }
     
 }
