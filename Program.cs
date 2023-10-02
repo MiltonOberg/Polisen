@@ -53,48 +53,37 @@ class Utryckning
     
 
 }
-public class Rapport
-{
-// ska innehålla rapportnummer, datum, station samt beskrivning
+        public class Rapport
+        {
+ // ska innehålla rapportnummer, datum, station samt beskrivning
+    
+        //fält
+        string RapportNummer;
+        string Datum;
+        string Plats;
+        string Beskrivning;
 
-//fält
-    int RapportNummer;
-    string Datum;
-    string Plats;
-    string Beskrivning;
+        public void Rapportering()
+        {
+            Console.WriteLine("Rapport ID: ");
+            RapportNummer = Console.ReadLine();
+            Console.WriteLine("Datum: ");
+            Datum = Console.ReadLine();
+            Console.WriteLine("Plats: ");
+            Plats = Console.ReadLine();
+            Console.WriteLine("Beskriv händelseförloppet: ");
+            Beskrivning = Console.ReadLine();        
 
-    void Rapportering()
-    {
-        Console.WriteLine("Rapport ID: ");
-        RapportNummer = Convert.ToInt32();
-        Console.WriteLine("Datum: ");
-        Datum = Console.ReadLine();
-        Console.WriteLine("Plats: ");
-        Plats = Console.Readline();
-        Console.WriteLine("Beskriv händelseförloppet: ");
-        Beskrivning = Console.ReadLine();        
-
-        Console.WriteLine("Rapport ID: " RapportNummer "/n" + "Datum: " + Datum + "/nHändelse: " + Beskrivning);
-        System.Console.WriteLine("Stämmer detta? J/N");
-        Console.ReadLine();
-    }
+            Console.WriteLine("Rapport ID: " + RapportNummer + "/nDatum: " + Datum + "/nHändelse: " + Beskrivning);
+            System.Console.WriteLine("Stämmer detta? J/N");
+            Console.ReadLine();
+        }
+        
+    }    
+     
 
 
-
-
-    public void Rapportering()
-    {
-
-        Console.WriteLine("Rapportnummer");
-        Console.WriteLine("Datum");
-        Console.WriteLine("Station");
-        Console.WriteLine("Beskrivning");
-    }
-
-}
-*/
-
-class Program
+class Meny
 {
     public static void Main()
     {
