@@ -7,68 +7,65 @@ class Personal
 {
     public string name;
     public int number;
-    
     public Personal(string name, int number)
     {
         this.name = name;
-        this.number = number;
-        
+        this.number = number;  
     }
 }
-class PersonalList
+    class Add
 {
-    
-    List<Personal> pList;
-    public PersonalList()
+    public List<Personal> pList;
+    public Add()
     {
         pList = new List<Personal>();
     }
-    public void Add(string name, int number)
+    public void AddP()
     {
+        Console.WriteLine("Vad heter polisen?");
+        string name = Console.ReadLine();
+        Console.WriteLine("Vad är polisens tjänstenummer?");
+        int number = int.Parse(Console.ReadLine());
         pList.Add(new Personal(name, number));
     }
-    public void Print()
+    public void ShowPeronal()
     {
         for(int i = 0; i < pList.Count; i++)
         {
-            Console.WriteLine($"Namn: {pList[i].name}: {pList[i].number}");
+            Console.WriteLine($"{pList[i].name},  {pList[i].number}");
         }
     }
     
+    
 }
+
 class Utryckning
 {
-public string crime; // typ av brott
-public int time; //vilken tid brottet inträffade.
-
-public string cops; //Vilka poliser som deltog
-public string plats; // plats .
-
-public Utryckning(string crime, string plats, string cops, int time)
-{
-    this.crime = crime;
-    this.plats = plats;
-    this.cops = cops;
-    this.time = time;
-}
-class UtList
-{
-List<Utryckning> utryckList;
-public UtList()
-{
-    utryckList = new List<Utryckning>();
-}
-public void Add(string crime, string plats, string cops, int time)
-{
-    utryckList.Add(new Utryckning(crime, plats, cops, time));
-}
+    public string crime; // typ av brott
+    public int time; //vilken tid brottet inträffade.
+    public string cops; //Vilka poliser som deltog
+    public string plats; // plats .
+    public List<Utryckning> utryckList;
+    
+    public Utryckning(string crime, string plats, string cops, int time)
+    {
+        this.crime = crime;
+        this.plats = plats;
+        this.cops = cops;
+        this.time = time;
+        utryckList = new List<Utryckning>();
+    }
+    public void Add(string crime, string plats, string cops, int time)
+    {
+        utryckList.Add(new Utryckning(crime, plats, cops, time));
+    }
+    
+    
 }
 
-}
         public class Rapport
         {
- // ska innehålla rapportnummer, datum, station samt beskrivning
-    
+        // ska innehålla rapportnummer, datum, station samt beskrivning
         //fält
         public string RapportNummer;
         public string Datum;
@@ -93,40 +90,38 @@ public void Add(string crime, string plats, string cops, int time)
         
     }    
      
-
-
 class Meny
 {
     public static void Main()
     {
         Rapport rapportInstance = new Rapport(); //för att kunna kalla på metoden
-        
-
-        PersonalList pList = new PersonalList();
-        pList.Add("calle", 1231);
-        pList.Add("Milton", 8469);
-        pList.Add("Brian", 6263);
+        Add Add = new Add();
 
         Console.WriteLine("1. Skriv rapport");
-        Console.WriteLine("2. Personal");
+        Console.WriteLine("2. Lägg till personal");
         Console.WriteLine("3. Rapporter");
-        Console.WriteLine("4");
+        Console.WriteLine("4. Exit");
         string choice = Console.ReadLine();
 
-        switch(choice)
+        while(true)
         {
-            case "1":
-                rapportInstance.Rapportering();
-                break;
-            case "2":
-                
-                break;
-            case "3":
-
-                break;
-            case "4":
             
-                break;
+            switch(choice)
+            {
+                case "1":
+                    rapportInstance.Rapportering();
+                    break;
+                case "2":
+                    Add.AddP();
+                    Add.ShowPeronal();
+                    break;
+                case "3":
+
+                    break;
+                case "4":
+
+                    return;
+            }
         }
         
         
