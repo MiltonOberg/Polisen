@@ -3,18 +3,18 @@ using System;
 
 class Utryckning
 {
-    public string crime; // typ av brott
-    public int time; //vilken tid brottet inträffade.
-    public string cops; //Vilka poliser som deltog
-    public string place; // plats .
+    public string Crime{get; set;} // typ av brott
+    public int Time{get;set;} //vilken tid brottet inträffade.
+    public string Cops{get; set;} //Vilka poliser som deltog
+    public string Place{get; set;} // plats .
     
     
     public Utryckning(string crime, string place, string cops, int time)
     {
-        this.crime = crime;
-        this.place = place;
-        this.cops = cops;
-        this.time = time; 
+        Crime = crime;
+        Place = place;
+        Cops = cops;
+        Time = time; 
     }
 }
 class UtLista
@@ -36,12 +36,15 @@ class UtLista
         string cops = Console.ReadLine();
         
         utryckList.Add(new Utryckning(crime, place, cops, time));
+
+        string jsonUtryckning = JsonSerializer.Serialize(utryckList);
+        File.WriteAllText("Utryckning.json", jsonUtryckning);
     }
     public void ShowUtlist()
     {
         for(int i = 0; i < utryckList.Count; i++)
         {
-            Console.WriteLine($"Utryckning {i + 1}: {utryckList[i].crime}, {utryckList[i].place}, {utryckList[i].time}, {utryckList[i].time}");
+            Console.WriteLine($"Utryckning {i + 1}: {utryckList[i].Crime}, {utryckList[i].Place}, {utryckList[i].Cops}, {utryckList[i].Time}");
         }
     }
 }

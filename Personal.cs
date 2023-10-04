@@ -3,12 +3,12 @@ using System;
 
 class Personal
 {
-    public string name;
-    public int number;
+    public string Name{get; set;}
+    public int Number{get; set;}
     public Personal(string name, int number)
     {
-        this.name = name;
-        this.number = number;  
+        Name = name;
+        Number = number;  
     }
 }
     class PersonalList
@@ -25,6 +25,8 @@ class Personal
         Console.WriteLine("Vad är polisens tjänstenummer?");
         int number = int.Parse(Console.ReadLine());
         pList.Add(new Personal(name, number));
+        
+        
         string jsonPersonal = JsonSerializer.Serialize(pList);
         File.WriteAllText("personal.json", jsonPersonal);
     }
@@ -32,7 +34,7 @@ class Personal
     {
         for(int i = 0; i < pList.Count; i++)
         {
-            Console.WriteLine($"{pList[i].name}, {pList[i].number}");
+            Console.WriteLine($"{pList[i].Name}, {pList[i].Number}");
         }
     }
 }
