@@ -16,11 +16,9 @@ class Utryckning
         Cops = cops;
         Time = time; 
     }
-}
-class UtLista
-{
+
     public List<Utryckning> utryckList;
-    public UtLista()
+    public Utryckning()
     {
         utryckList = new List<Utryckning>();
     }

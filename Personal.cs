@@ -10,11 +10,9 @@ class Personal
         Name = name;
         Number = number;  
     }
-}
-    class PersonalList
-{
+
     public List<Personal> pList;
-    public PersonalList()
+    public Personal()
     {
         pList = new List<Personal>();
     }

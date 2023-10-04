@@ -38,8 +38,8 @@ class Meny
     public static void Main()
     {
         Rapport rapportInstance = new Rapport(); //för att kunna kalla på metoden
-        PersonalList PersonalList = new PersonalList();
-        UtLista utryck = new UtLista();
+        Personal PersonalList = new Personal();
+        Utryckning utryck = new Utryckning();
         while(true)
         {
             Console.WriteLine("1. Skriv rapport");
