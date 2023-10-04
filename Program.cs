@@ -38,30 +38,30 @@ class PersonalList
 }
 class Utryckning
 {
-    public string crime; // typ av brott
-    public int time; //vilken tid brottet inträffade.
-    
-    public string cops; //Vilka poliser som deltog
-    public string plats; // plats .
-    
-    public Utryckning(string crime, string plats, string cops, int time)
-    {
-        this.crime = crime;
-        this.plats = plats;
-        this.cops = cops;
-        this.time = time;
-    }
+public string crime; // typ av brott
+public int time; //vilken tid brottet inträffade.
+
+public string cops; //Vilka poliser som deltog
+public string plats; // plats .
+
+public Utryckning(string crime, string plats, string cops, int time)
+{
+    this.crime = crime;
+    this.plats = plats;
+    this.cops = cops;
+    this.time = time;
+}
 class UtList
 {
-    List<Utryckning> utryckList;
-    public UtList()
-    {
-        utryckList = new List<Utryckning>();
-    }
-    public void Add(string crime, string plats, string cops, int time)
-    {
-        utryckList.Add(new Utryckning(crime, plats, cops, time));
-    }
+List<Utryckning> utryckList;
+public UtList()
+{
+    utryckList = new List<Utryckning>();
+}
+public void Add(string crime, string plats, string cops, int time)
+{
+    utryckList.Add(new Utryckning(crime, plats, cops, time));
+}
 }
 
 }
@@ -70,10 +70,10 @@ class UtList
  // ska innehålla rapportnummer, datum, station samt beskrivning
     
         //fält
-        string RapportNummer;
-        string Datum;
-        string Plats;
-        string Beskrivning;
+        public string RapportNummer;
+        public string Datum;
+        public string Plats;
+        public string Beskrivning;
 
         public void Rapportering()
         {
@@ -86,7 +86,7 @@ class UtList
             Console.WriteLine("Beskriv händelseförloppet: ");
             Beskrivning = Console.ReadLine();        
 
-            Console.WriteLine("Rapport ID: " + RapportNummer + "/nDatum: " + Datum + "/nHändelse: " + Beskrivning);
+            Console.WriteLine("Rapport ID: " + RapportNummer + "\nDatum: " + Datum + "\nHändelse: " + Beskrivning);
             System.Console.WriteLine("Stämmer detta? J/N");
             Console.ReadLine();
         }
@@ -99,6 +99,9 @@ class Meny
 {
     public static void Main()
     {
+        Rapport rapportInstance = new Rapport(); //för att kunna kalla på metoden
+        
+
         PersonalList pList = new PersonalList();
         pList.Add("calle", 1231);
         pList.Add("Milton", 8469);
@@ -113,7 +116,7 @@ class Meny
         switch(choice)
         {
             case "1":
-                
+                rapportInstance.Rapportering();
                 break;
             case "2":
                 
@@ -125,6 +128,7 @@ class Meny
             
                 break;
         }
+        
         
     }
 }
