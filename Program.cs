@@ -38,7 +38,7 @@ class Meny
     public static void Main()
     {
         Rapport rapportInstance = new Rapport(); //för att kunna kalla på metoden
-        Personal PersonalList = new Personal();
+        PersonalList personalList = new PersonalList();
         Utryckning utryck = new Utryckning();
         while(true)
         {
@@ -55,7 +55,7 @@ class Meny
                     rapportInstance.Rapportering();
                     break;
                 case "2":
-                    PersonalList.Add();
+                    personalList.Add();
                     break;
                 case "3":
                     utryck.Add();

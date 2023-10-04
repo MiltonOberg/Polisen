@@ -35,8 +35,16 @@ class Utryckning
         
         utryckList.Add(new Utryckning(crime, place, cops, time));
 
-        string jsonUtryckning = JsonSerializer.Serialize(utryckList);
-        File.WriteAllText("Utryckning.json", jsonUtryckning);
+    }
+    public void JsonSave()
+    {
+        string jsonPersonal = JsonSerializer.Serialize(utryckList);
+        File.WriteAllText("personal.json", jsonPersonal);
+    }
+    public void JsonLoad()
+    {
+        string jsonPersonal = File.ReadAllText("personal.json");
+        utryckList = JsonSerializer.Deserialize<List<Utryckning>>(jsonPersonal);
     }
     public void ShowUtlist()
     {
