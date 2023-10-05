@@ -6,32 +6,6 @@ using System.ComponentModel;
 using System.Text.Json;
 
 
-        public class Rapport
-        {
-        // ska innehålla rapportnummer, datum, station samt beskrivning
-        //fält
-        public string RapportNummer;
-        public string Datum;
-        public string Plats;
-        public string Beskrivning;
-
-        public void Rapportering()
-        {
-            Console.WriteLine("Rapport ID: ");
-            RapportNummer = Console.ReadLine();
-            Console.WriteLine("Datum: ");
-            Datum = Console.ReadLine();
-            Console.WriteLine("Plats: ");
-            Plats = Console.ReadLine();
-            Console.WriteLine("Beskriv händelseförloppet: ");
-            Beskrivning = Console.ReadLine();        
-
-            Console.WriteLine("Rapport ID: " + RapportNummer + "\nDatum: " + Datum + "\nHändelse: " + Beskrivning);
-            System.Console.WriteLine("Stämmer detta? J/N");
-            Console.ReadLine();
-        }
-        
-    }    
      
 class Meny
 {
