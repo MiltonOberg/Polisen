@@ -24,6 +24,7 @@ class Utryckning
     }
     public void Add()
     {
+        JsonLoad();
         Console.WriteLine("Vad var det för brott?");
         string crime = Console.ReadLine();
         Console.WriteLine("Var skedde utryckningen?");
@@ -34,16 +35,17 @@ class Utryckning
         string cops = Console.ReadLine();
         
         utryckList.Add(new Utryckning(crime, place, cops, time));
+        JsonSave();
 
     }
     public void JsonSave()
     {
-        string jsonPersonal = JsonSerializer.Serialize(utryckList);
-        File.WriteAllText("personal.json", jsonPersonal);
+        string jsonUtryck = JsonSerializer.Serialize(utryckList);
+        File.WriteAllText("utryckning.json", jsonUtryck);
     }
     public void JsonLoad()
     {
-        string jsonPersonal = File.ReadAllText("personal.json");
+        string jsonPersonal = File.ReadAllText("utryckning.json");
         utryckList = JsonSerializer.Deserialize<List<Utryckning>>(jsonPersonal);
     }
     public void ShowUtlist()
