@@ -45,7 +45,9 @@ class PersonalList
     public void ShowPersonal()
     {
         JsonLoad();
-        Console.WriteLine(pList);
-
+        for(int i = 0; i < pList.Count; i++)
+        {
+            Console.WriteLine($"{pList[i].Name}, {pList[i].Number}");
+        }
     }
 }

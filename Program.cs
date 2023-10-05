@@ -35,9 +35,10 @@ class Meny
                 case "3":
                     utryck.Add();
                     break;
-                case "4":    
+                case "4":
+                    bool runAgain = true;
                     Console.WriteLine("Arkiv. Vad är det du vill ta en titt på?");
-                    while(true)
+                    while(runAgain)
                     {
                         Console.WriteLine("1. Arkiv för rapporter");
                         Console.WriteLine("2. Arkiv för personal");
@@ -57,9 +58,11 @@ class Meny
                                 break;
                             case "4":
 
-                                return;
+                                runAgain = false;
+                                break;
                         }
                     }
+                    break;
                 case "5":
                     return;
             }
