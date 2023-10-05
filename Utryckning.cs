@@ -45,14 +45,12 @@ class Utryckning
     }
     public void JsonLoad()
     {
-        string jsonPersonal = File.ReadAllText("utryckning.json");
-        utryckList = JsonSerializer.Deserialize<List<Utryckning>>(jsonPersonal);
+        string jsonUtryck = File.ReadAllText("utryckning.json");
+        utryckList = JsonSerializer.Deserialize<List<Utryckning>>(jsonUtryck);
     }
     public void ShowUtlist()
-    {
-        for(int i = 0; i < utryckList.Count; i++)
-        {
-            Console.WriteLine($"Utryckning {i + 1}: {utryckList[i].Crime}, {utryckList[i].Place}, {utryckList[i].Cops}, {utryckList[i].Time}");
-        }
+    {   
+        JsonLoad();
+        Console.WriteLine(utryckList);
     }
 }

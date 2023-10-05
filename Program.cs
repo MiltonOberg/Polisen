@@ -60,9 +60,31 @@ class Meny
                 case "3":
                     utryck.Add();
                     break;
-                case "4":
+                case "4":    
+                    Console.WriteLine("Arkiv. Vad är det du vill ta en titt på?");
+                    while(true)
+                    {
+                        Console.WriteLine("1. Arkiv för rapporter");
+                        Console.WriteLine("2. Arkiv för personal");
+                        Console.WriteLine("3. Arkiv för utryckningar");
+                        Console.WriteLine("4. För att backa till huvudmenyn");
+                        choice = Console.ReadLine();
+                        switch(choice)
+                        {
+                            case "1":
 
-                    break;
+                                break;
+                            case "2":
+                                personalList.ShowPersonal();
+                                break;
+                            case "3":
+                                utryck.ShowUtlist();
+                                break;
+                            case "4":
+
+                                return;
+                        }
+                    }
                 case "5":
                     return;
             }
