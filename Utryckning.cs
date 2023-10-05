@@ -51,6 +51,9 @@ class Utryckning
     public void ShowUtlist()
     {   
         JsonLoad();
-        Console.WriteLine(utryckList);
+        for(int i = 0; i < utryckList.Count; i++)
+        {
+            Console.WriteLine($"Brott: {utryckList[i].Crime} Plats: {utryckList[i].Place} Poliser: {utryckList[i].Cops} Tid: {utryckList[i].Time}");
+        }
     }
 }
