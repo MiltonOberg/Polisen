@@ -1,3 +1,5 @@
+ using System.Text.Json;
+using System;
  public class Rapport
         {
         // ska innehålla rapportnummer, datum, station samt beskrivning
@@ -7,50 +9,48 @@
         public string Plats{ get; set; }
         public string Beskrivning{ get; set; }
 
-           
-          
-
         public Rapport(string rapportNummer, string datum, string plats, string beskrivning)
-            {
-                RapportNummer = rapportNummer;
-                Datum = datum;
-                Plats = plats;
-                Beskrivning = beskrivning;
-
-            }
-
-        public void Print()
-            {
-                Console.WriteLine($"Rapport ID: {RapportNummer}\nDatum: {Datum}\nPlats: {Plats}\nBeskrivning: {Beskrivning}");
-            }
-            
-        }
-         public class SaveToFile
         {
-        // spara till json
-            public static void RapportData(string[]args)
-            {
-            List<Rapport> rapportList = new List<Rapport>();
-            {
-                new Rapport("000001", "1984-10-12", "Göteborg, Majorna", "Inbrott i lägenhet");
-                new Rapport("000002", "1984-10-13", "Göteborg, Majorna", "Överfall av alkoholpåverkad man, 30-års åldern");
-                new Rapport("000003", "1984-10-13", "Göteborg, Majorna", "Gripning av gärningsmän som rånat alkoholpåverkad man");
-                new Rapport("000004", "1984-10-16", "Göteborg, Majorna", "Misstänk drogpåverkad kvinna, 40-års åldern, häktas.");
-            };
-            
-            string strJson = JsonSerializer.Serialize(rapportList, new JsonSerializerOptions { WriteIndented = true });
-            File.WriteAllText("rapport.json", strJson);
-            }
-
-        
-            // Load and print the saved reports
-            string strJsonLoaded = File.ReadAllText("rapport.json");
-            List<Rapport> loadedRapport = JsonSerializer.Deserialize<List<Rapport>>(strJsonLoaded);
-
-            foreach (var report in loadedRapport)
-            {
-                report.Print();
-            }
+            RapportNummer = rapportNummer;
+            Datum = datum;
+            Plats = plats;
+            Beskrivning = beskrivning;
         }
-    
-        
+
+        public List<Rapport> rapportList;
+        public Rapport()
+        {
+            rapportList = new List<Rapport>();
+        }
+        public void RapportAdd()
+        {
+            JsonLoadRapport();
+            Console.WriteLine("Rapportnummer:");
+            string rapportNummer = Console.ReadLine();
+            Console.WriteLine("Datum(YYYY-MM-DD): ");
+            string datum = Console.ReadLine();
+            Console.WriteLine("Ange platsen där händelsen inträffade: ");
+            string plats = Console.ReadLine();
+            Console.WriteLine("Beskriv händelsen: ");
+            string beskrivning = Console.ReadLine();
+            
+            rapportList.Add(new Rapport(rapportNummer, datum, plats, beskrivning));
+            JsonSaveRapport();
+
+        }
+    public void JsonSaveRapport()
+    {
+        string jsonUtryck = JsonSerializer.Serialize(rapportList);
+        File.WriteAllText("rapport.json", jsonRapport);
+    }
+    public void JsonLoadRapport()
+    {
+        string jsonRapport = File.ReadAllText("rapport.json");
+        rapportList = JsonSerializer.Deserialize<List<Rapport>>(jsonRapport);
+    }
+        public void ShowRapportlist()
+    {
+        JsonLoadRapport();
+        Console.WriteLine(rapportList);
+    }
+}
