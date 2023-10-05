@@ -16,16 +16,15 @@ class Utryckning
         Cops = cops;
         Time = time; 
     }
-}
-class UtLista
-{
+
     public List<Utryckning> utryckList;
-    public UtLista()
+    public Utryckning()
     {
         utryckList = new List<Utryckning>();
     }
     public void Add()
     {
+        JsonLoad();
         Console.WriteLine("Vad var det för brott?");
         string crime = Console.ReadLine();
         Console.WriteLine("Var skedde utryckningen?");
@@ -36,15 +35,22 @@ class UtLista
         string cops = Console.ReadLine();
         
         utryckList.Add(new Utryckning(crime, place, cops, time));
+        JsonSave();
 
-        string jsonUtryckning = JsonSerializer.Serialize(utryckList);
-        File.WriteAllText("Utryckning.json", jsonUtryckning);
+    }
+    public void JsonSave()
+    {
+        string jsonUtryck = JsonSerializer.Serialize(utryckList);
+        File.WriteAllText("utryckning.json", jsonUtryck);
+    }
+    public void JsonLoad()
+    {
+        string jsonUtryck = File.ReadAllText("utryckning.json");
+        utryckList = JsonSerializer.Deserialize<List<Utryckning>>(jsonUtryck);
     }
     public void ShowUtlist()
-    {
-        for(int i = 0; i < utryckList.Count; i++)
-        {
-            Console.WriteLine($"Utryckning {i + 1}: {utryckList[i].Crime}, {utryckList[i].Place}, {utryckList[i].Cops}, {utryckList[i].Time}");
-        }
+    {   
+        JsonLoad();
+        Console.WriteLine(utryckList);
     }
 }

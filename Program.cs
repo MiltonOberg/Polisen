@@ -12,8 +12,8 @@ class Meny
     public static void Main()
     {
         Rapport rapportInstance = new Rapport(); //för att kunna kalla på metoden
-        PersonalList PersonalList = new PersonalList();
-        UtLista utryck = new UtLista();
+        PersonalList personalList = new PersonalList();
+        Utryckning utryck = new Utryckning();
         while(true)
         {
             Console.WriteLine("1. Skriv rapport");
@@ -29,14 +29,36 @@ class Meny
                     rapportInstance.Rapportering();
                     break;
                 case "2":
-                    PersonalList.Add();
+                    personalList.Add();
                     break;
                 case "3":
                     utryck.Add();
                     break;
-                case "4":
+                case "4":    
+                    Console.WriteLine("Arkiv. Vad är det du vill ta en titt på?");
+                    while(true)
+                    {
+                        Console.WriteLine("1. Arkiv för rapporter");
+                        Console.WriteLine("2. Arkiv för personal");
+                        Console.WriteLine("3. Arkiv för utryckningar");
+                        Console.WriteLine("4. För att backa till huvudmenyn");
+                        choice = Console.ReadLine();
+                        switch(choice)
+                        {
+                            case "1":
 
-                    break;
+                                break;
+                            case "2":
+                                personalList.ShowPersonal();
+                                break;
+                            case "3":
+                                utryck.ShowUtlist();
+                                break;
+                            case "4":
+
+                                return;
+                        }
+                    }
                 case "5":
                     return;
             }
