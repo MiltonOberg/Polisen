@@ -25,7 +25,7 @@ using System;
         public void RapportAdd()
         {
             JsonLoadRapport();
-            Console.WriteLine("Rapportnummer:");
+            Console.WriteLine("Rapportnummer(6-siffror):");
             string rapportNummer = Console.ReadLine();
             Console.WriteLine("Datum(YYYY-MM-DD): ");
             string datum = Console.ReadLine();
@@ -54,6 +54,8 @@ using System;
         for(int i = 0; i < rapportList.Count; i++)
         {
             Console.WriteLine($"RapportNummer: {rapportList[i].RapportNummer}\nDatum: {rapportList[i].Datum}\nPlats: {rapportList[i].Plats}\nBeskrivning: {rapportList[i].Beskrivning}");
+            Console.WriteLine("\n");
         }
+        Console.ReadLine();    
     }
 }

@@ -48,6 +48,7 @@ class Meny
                         switch(choice)
                         {
                             case "1":
+                                rapportList.ShowRapportlist();
 
                                 break;
                             case "2":
