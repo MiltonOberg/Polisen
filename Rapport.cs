@@ -40,7 +40,7 @@ using System;
         }
     public void JsonSaveRapport()
     {
-        string jsonUtryck = JsonSerializer.Serialize(rapportList);
+        string jsonRapport = JsonSerializer.Serialize(rapportList);
         File.WriteAllText("rapport.json", jsonRapport);
     }
     public void JsonLoadRapport()
