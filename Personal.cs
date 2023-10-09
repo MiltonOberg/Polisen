@@ -35,12 +35,9 @@ class Personal
         pList = JsonSerializer.Deserialize<List<Personal>>(jsonPersonal);
     }
 
-    public void ShowPersonal()
+    public List<Personal>ShowPersonal()
     {
         JsonLoad();
-        for(int i = 0; i < pList.Count; i++)
-        {
-            Console.WriteLine($"{pList[i].Name}, {pList[i].Number}");
-        }
+        return(pList);
     }
 }

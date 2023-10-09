@@ -4,9 +4,10 @@ using System.IO.Pipes;
 using System.Runtime.InteropServices;
 using System.ComponentModel;
 using System.Text.Json;
+using System.Net.Quic;
 
 
-     
+
 class Meny
 {
     public static void Main()
@@ -62,15 +63,17 @@ class Meny
                             case "1":
                                 rapportInstance.RapportAdd();
                                 break;
-                            case "2":
-                                
-                                personalList.ShowPersonal();
+                            case "2":                               
+                                List <Personal> pList = personalList.ShowPersonal();
+                                for(int i = 0; i < pList.Count; i++)
+                                {
+                                    Console.WriteLine($"{pList[i].Name}, {pList[i].Number}");
+                                }
                                 break;
                             case "3":
                                 utryck.ShowUtlist();
                                 break;
                             case "4":
-
                                 runAgain = false;
                                 break;
                         }
