@@ -7,6 +7,7 @@ class Personal
     public string Name{get; set;}
     public int Number{get; set;}
     public List<Personal> pList;
+    
     public Personal(string name, int number)
     {
         Name = name;
@@ -20,7 +21,6 @@ class Personal
     public void Add(string name, int number)
     {
         JsonLoad();
-        
         pList.Add(new Personal(name, number));
         JsonSave();
     }
@@ -34,7 +34,6 @@ class Personal
         string jsonPersonal = File.ReadAllText("personal.json");
         pList = JsonSerializer.Deserialize<List<Personal>>(jsonPersonal);
     }
-
     public List<Personal>ShowPersonal()
     {
         JsonLoad();

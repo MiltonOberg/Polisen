@@ -31,6 +31,7 @@ class Meny
                     rapportInstance.RapportAdd();
                     break;
                 case "2":
+
                     Console.WriteLine("Vad heter polisen?");
                     string name = Console.ReadLine();
                     Console.WriteLine("Vad är polisens tjänstenummer?");
@@ -38,6 +39,7 @@ class Meny
                     personalList.Add(name, number);
                     break;
                 case "3":
+
                     Console.WriteLine("Vad var det för brott?");
                     string crime = Console.ReadLine();
                     Console.WriteLine("Var skedde utryckningen?");
@@ -49,6 +51,7 @@ class Meny
                     utryck.Add(crime, place, time, cops);
                     break;
                 case "4":
+
                     bool runAgain = true;
                     Console.WriteLine("Arkiv. Vad är det du vill ta en titt på?");
                     while(runAgain)
@@ -63,7 +66,8 @@ class Meny
                             case "1":
                                 rapportInstance.RapportAdd();
                                 break;
-                            case "2":                               
+                            case "2":
+                                                       
                                 List <Personal> pList = personalList.ShowPersonal();
                                 for(int i = 0; i < pList.Count; i++)
                                 {
@@ -71,9 +75,15 @@ class Meny
                                 }
                                 break;
                             case "3":
-                                utryck.ShowUtlist();
+
+                                List<Utryckning> utryckList = utryck.ShowUtlist();
+                                for(int i = 0; i < utryckList.Count; i++)
+                                    {
+                                        Console.WriteLine($"Brott: {utryckList[i].Crime} Plats: {utryckList[i].Place} Poliser: {utryckList[i].Cops} Tid: {utryckList[i].Time}");
+                                    }
                                 break;
                             case "4":
+                            
                                 runAgain = false;
                                 break;
                         }
