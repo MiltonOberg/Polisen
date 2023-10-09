@@ -17,7 +17,6 @@ class Personal
     {
         pList = new List<Personal>();
     }
-    
     public void Add(string name, int number)
     {
         JsonLoad();
