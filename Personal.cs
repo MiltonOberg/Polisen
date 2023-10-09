@@ -6,28 +6,21 @@ class Personal
 {
     public string Name{get; set;}
     public int Number{get; set;}
+    public List<Personal> pList;
     public Personal(string name, int number)
     {
         Name = name;
         Number = number;  
-        
     }
-}
-class PersonalList
-{
-    public List<Personal> pList;
-    public PersonalList()
+    public Personal()
     {
         pList = new List<Personal>();
     }
     
-    public void Add()
+    public void Add(string name, int number)
     {
         JsonLoad();
-        Console.WriteLine("Vad heter polisen?");
-        string name = Console.ReadLine();
-        Console.WriteLine("Vad är polisens tjänstenummer?");
-        int number = int.Parse(Console.ReadLine());
+        
         pList.Add(new Personal(name, number));
         JsonSave();
     }

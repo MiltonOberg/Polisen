@@ -13,7 +13,7 @@ class Meny
     {
      
         Rapport rapportInstance = new Rapport(); //för att kunna kalla på metoden
-        PersonalList personalList = new PersonalList();
+        Personal personalList = new Personal();
         Utryckning utryck = new Utryckning();
         while(true)
         {
@@ -30,7 +30,11 @@ class Meny
                     rapportInstance.RapportAdd();
                     break;
                 case "2":
-                    personalList.Add();
+                    Console.WriteLine("Vad heter polisen?");
+                    string name = Console.ReadLine();
+                    Console.WriteLine("Vad är polisens tjänstenummer?");
+                    int number = int.Parse(Console.ReadLine());
+                    personalList.Add(name, number);
                     break;
                 case "3":
                     utryck.Add();
@@ -48,7 +52,7 @@ class Meny
                         switch(choice)
                         {
                             case "1":
-
+                                rapportInstance.RapportAdd();
                                 break;
                             case "2":
                                 personalList.ShowPersonal();
