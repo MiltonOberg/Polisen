@@ -12,7 +12,7 @@ class Meny
     public static void Main()
     {
      
-        Rapport rapportList = new Rapport(); //för att kunna kalla på metoden
+        Rapport rapportInstance = new Rapport(); //för att kunna kalla på metoden
         PersonalList personalList = new PersonalList();
         Utryckning utryck = new Utryckning();
         while(true)
@@ -27,7 +27,7 @@ class Meny
             switch(choice)
             {
                 case "1":
-                    rapportList.RapportAdd();
+                    rapportInstance.RapportAdd();
                     break;
                 case "2":
                     personalList.Add();
@@ -48,7 +48,6 @@ class Meny
                         switch(choice)
                         {
                             case "1":
-                                rapportList.ShowRapportlist();
 
                                 break;
                             case "2":
