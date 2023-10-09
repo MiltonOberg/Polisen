@@ -37,7 +37,15 @@ class Meny
                     personalList.Add(name, number);
                     break;
                 case "3":
-                    utryck.Add();
+                    Console.WriteLine("Vad var det för brott?");
+                    string crime = Console.ReadLine();
+                    Console.WriteLine("Var skedde utryckningen?");
+                    string place = Console.ReadLine();
+                    Console.WriteLine("Vilken tid skedde utryckningen?");
+                    int time = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Och slutligen vilka poliser var på utryckningen?");
+                    string cops = Console.ReadLine();
+                    utryck.Add(crime, place, time, cops);
                     break;
                 case "4":
                     bool runAgain = true;
@@ -55,6 +63,7 @@ class Meny
                                 rapportInstance.RapportAdd();
                                 break;
                             case "2":
+                                
                                 personalList.ShowPersonal();
                                 break;
                             case "3":

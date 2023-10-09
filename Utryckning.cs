@@ -22,17 +22,10 @@ class Utryckning
     {
         utryckList = new List<Utryckning>();
     }
-    public void Add()
+    public void Add(string crime, string place, int time, string cops)
     {
         JsonLoad();
-        Console.WriteLine("Vad var det för brott?");
-        string crime = Console.ReadLine();
-        Console.WriteLine("Var skedde utryckningen?");
-        string place = Console.ReadLine();
-        Console.WriteLine("Vilken tid skedde utryckningen?");
-        int time = int.Parse(Console.ReadLine());
-        Console.WriteLine("Och slutligen vilka poliser var på utryckningen?");
-        string cops = Console.ReadLine();
+        
         
         utryckList.Add(new Utryckning(crime, place, cops, time));
         JsonSave();
