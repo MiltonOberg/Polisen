@@ -1,8 +1,29 @@
-public class User
+using System;
+
+
+public class UserInterface
 {
-   // Rapport rapportInstance = new Rapport(); //för att kunna kalla på metoden
+    Rapport rapportList = new Rapport(); //för att kunna kalla på metoden
     Personal personalList = new Personal();
     Utryckning utryck = new Utryckning();
+
+
+    public void RapportUser()
+    {
+            Console.WriteLine("Rapportnummer(6-siffror):");
+            string rapportNummer = Console.ReadLine();
+            Console.WriteLine("Datum(YYYY-MM-DD): ");
+            string datum = Console.ReadLine();
+            Console.WriteLine("Ange platsen där händelsen inträffade: ");
+            string plats = Console.ReadLine();
+            Console.WriteLine("Beskriv händelsen: ");
+            string beskrivning = Console.ReadLine();
+            
+            rapportList.RapportAdd(rapportNummer, datum, plats, beskrivning);
+
+    }
+   // Rapport rapportInstance = new Rapport(); //för att kunna kalla på metoden
+    
     public void PersonalUser()
     {
         Console.WriteLine("Vad heter polisen?");
@@ -25,3 +46,7 @@ public class User
         utryck.Add(crime, place, time, cops);
     }
 }
+
+
+
+

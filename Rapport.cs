@@ -39,7 +39,7 @@ using System;
         string jsonRapport = File.ReadAllText("rapport.json");
         rapportList = JsonSerializer.Deserialize<List<Rapport>>(jsonRapport);
     }
-    public void ShowRapportlist()
+    public List<Rapport> ShowRapportList()
     {
         JsonLoadRapport();
         for(int i = 0; i < rapportList.Count; i++)
@@ -47,6 +47,7 @@ using System;
             Console.WriteLine($"RapportNummer: {rapportList[i].RapportNummer}\nDatum: {rapportList[i].Datum}\nPlats: {rapportList[i].Plats}\nBeskrivning: {rapportList[i].Beskrivning}");
             Console.WriteLine("\n");
         }
-        Console.ReadLine();    
+        Console.ReadLine();   
+        return rapportList; 
     }
 }

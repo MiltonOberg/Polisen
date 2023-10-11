@@ -12,10 +12,11 @@ class Meny
 {
     public static void Main()
     {
-        User userInter = new User();
+        
         Rapport rapportInstance = new Rapport(); //för att kunna kalla på metoden
         Personal personalList = new Personal();
         Utryckning utryck = new Utryckning();
+        UserInterface userInterface = new UserInterface();
         
         while(true)
         {
@@ -29,15 +30,15 @@ class Meny
             switch(choice)
             {
                 case "1":
-                    UserInterface.RapportUser();
+                    userInterface.RapportUser();
                     break;
                 case "2":
 
-                    userInter.PersonalUser();
+                    userInterface.PersonalUser();
                     break;
                 case "3":
 
-                    userInter.Utryckning();
+                    userInterface.Utryckning();
                     break;
                 case "4":
 
@@ -54,7 +55,7 @@ class Meny
                         {
                             case "1":
 
-                                List<Rapport> rapportList = rapportList.ShowRapportList();
+                                List<Rapport> rapportList = rapportInstance.ShowRapportList();
                                 for(int i = 0; i < rapportList.Count; i++)
                                 {
                                     Console.WriteLine($"RapportNummer: {rapportList[i].RapportNummer}\nDatum: {rapportList[i].Datum}\nPlats: {rapportList[i].Plats}\nBeskrivning: {rapportList[i].Beskrivning}");
