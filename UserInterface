@@ -1,0 +1,29 @@
+using System
+
+
+public class UserInterface
+{
+    Rapport rapportList = new Rapport(); //för att kunna kalla på metoden
+
+
+    public static void RapportUser()
+    {
+            Console.WriteLine("Rapportnummer(6-siffror):");
+            string rapportNummer = Console.ReadLine();
+            Console.WriteLine("Datum(YYYY-MM-DD): ");
+            string datum = Console.ReadLine();
+            Console.WriteLine("Ange platsen där händelsen inträffade: ");
+            string plats = Console.ReadLine();
+            Console.WriteLine("Beskriv händelsen: ");
+            string beskrivning = Console.ReadLine();
+            
+            rapportList.Add(new Rapport(rapportNummer, datum, plats, beskrivning));
+
+    }
+
+
+
+
+
+
+}

@@ -28,7 +28,7 @@ class Meny
             switch(choice)
             {
                 case "1":
-                    rapportInstance.RapportAdd();
+                    UserInterface.RapportUser();
                     break;
                 case "2":
 
@@ -52,7 +52,13 @@ class Meny
                         switch(choice)
                         {
                             case "1":
-                                rapportInstance.RapportAdd();
+
+                                List<Rapport> rapportList = rapportList.ShowRapportList();
+                                for(int i = 0; i < rapportList.Count; i++)
+                                {
+                                    Console.WriteLine($"RapportNummer: {rapportList[i].RapportNummer}\nDatum: {rapportList[i].Datum}\nPlats: {rapportList[i].Plats}\nBeskrivning: {rapportList[i].Beskrivning}");
+                                    Console.WriteLine("\n");
+                                }
                                 break;
                             case "2":
                                                        

@@ -1,6 +1,6 @@
 public class User
 {
-    Rapport rapportInstance = new Rapport(); //för att kunna kalla på metoden
+   // Rapport rapportInstance = new Rapport(); //för att kunna kalla på metoden
     Personal personalList = new Personal();
     Utryckning utryck = new Utryckning();
     public void PersonalUser()

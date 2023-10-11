@@ -8,7 +8,7 @@ using System;
         public string Datum{ get; set; }
         public string Plats{ get; set; }
         public string Beskrivning{ get; set; }
-
+        public List<Rapport> rapportList;
         public Rapport(string rapportNummer, string datum, string plats, string beskrivning)
         {
             RapportNummer = rapportNummer;
@@ -17,23 +17,14 @@ using System;
             Beskrivning = beskrivning;
         }
 
-        public List<Rapport> rapportList;
+
         public Rapport()
         {
             rapportList = new List<Rapport>();
         }
-        public void RapportAdd()
+        public void RapportAdd(string rapportNummer, string datum, string plats, string beskrivning)
         {
             JsonLoadRapport();
-            Console.WriteLine("Rapportnummer(6-siffror):");
-            string rapportNummer = Console.ReadLine();
-            Console.WriteLine("Datum(YYYY-MM-DD): ");
-            string datum = Console.ReadLine();
-            Console.WriteLine("Ange platsen där händelsen inträffade: ");
-            string plats = Console.ReadLine();
-            Console.WriteLine("Beskriv händelsen: ");
-            string beskrivning = Console.ReadLine();
-            
             rapportList.Add(new Rapport(rapportNummer, datum, plats, beskrivning));
             JsonSaveRapport();
 
