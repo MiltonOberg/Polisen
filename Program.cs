@@ -16,6 +16,7 @@ class Meny
         Rapport rapportInstance = new Rapport(); //för att kunna kalla på metoden
         Personal personalList = new Personal();
         Utryckning utryck = new Utryckning();
+        
         while(true)
         {
             Console.WriteLine("1. Skriv rapport");

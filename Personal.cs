@@ -1,6 +1,7 @@
 using System.Text.Json;
 using System;
 using System.Diagnostics.Contracts;
+using System.IO.Pipes;
 
 class Personal
 {
@@ -33,9 +34,9 @@ class Personal
         string jsonPersonal = File.ReadAllText("personal.json");
         pList = JsonSerializer.Deserialize<List<Personal>>(jsonPersonal);
     }
-    public List<Personal>ShowPersonal()
+    public List<Personal> ShowPersonal()
     {
         JsonLoad();
-        return(pList);
+        return pList;
     }
 }
