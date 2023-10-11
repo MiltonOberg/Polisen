@@ -64,7 +64,7 @@ class Meny
                                 }
                                 break;
                             case "2":
-                                                       
+                                
                                 List <Personal> pList = personalList.ShowPersonal();
                                 for(int i = 0; i < pList.Count; i++)
                                 {

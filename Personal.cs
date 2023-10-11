@@ -2,6 +2,7 @@ using System.Text.Json;
 using System;
 using System.Diagnostics.Contracts;
 using System.IO.Pipes;
+using System.Diagnostics;
 
 class Personal
 {
@@ -16,13 +17,13 @@ class Personal
     }
     public Personal()
     {
+        JsonLoad();
         pList = new List<Personal>();
+        JsonSave();
     }
     public void Add(string name, int number)
     {
-        JsonLoad();
         pList.Add(new Personal(name, number));
-        JsonSave();
     }
     public void JsonSave()
     {

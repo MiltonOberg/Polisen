@@ -26,6 +26,7 @@ public class UserInterface
     
     public void PersonalUser()
     {
+        
         Console.WriteLine("Vad heter polisen?");
         string name = Console.ReadLine();
         Console.WriteLine("Vad är polisens tjänstenummer?");
