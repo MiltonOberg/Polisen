@@ -22,23 +22,31 @@ class Utryckning
     }
     public void Add(string crime, string place, int time, string cops)
     {
-        JsonLoad();
         utryckList.Add(new Utryckning(crime, place, cops, time));
-        JsonSave();
     }
-    public void JsonSave()
+    
+}
+class JsonUtryck
+{
+    Utryckning utryck = new Utryckning();
+    List<Utryckning> utryckList;
+    public void UtryckningListan()
+    {
+        new List<Utryckning>();
+    }
+    public void addToJsonUtryck()
+    {
+        utryckList.Add(utryck);
+    }
+    public void JsonSaveUtryck()
     {
         string jsonUtryck = JsonSerializer.Serialize(utryckList);
         File.WriteAllText("utryckning.json", jsonUtryck);
     }
-    public void JsonLoad()
+    public List<Utryckning> JsonLoadUtryck()
     {
         string jsonUtryck = File.ReadAllText("utryckning.json");
         utryckList = JsonSerializer.Deserialize<List<Utryckning>>(jsonUtryck);
-    }
-    public List<Utryckning>ShowUtlist()
-    {   
-        JsonLoad();
-        return (utryckList);
+        return utryckList;
     }
 }

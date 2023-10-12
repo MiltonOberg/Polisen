@@ -4,7 +4,7 @@ using System;
 public class UserInterface
 {
     Rapport rapportList = new Rapport(); //för att kunna kalla på metoden
-    Personal personalList = new Personal();
+    Personal pList = new Personal();
     Utryckning utryck = new Utryckning();
 
 
@@ -31,7 +31,7 @@ public class UserInterface
         string name = Console.ReadLine();
         Console.WriteLine("Vad är polisens tjänstenummer?");
         int number = int.Parse(Console.ReadLine());
-        personalList.Add(name, number);
+        pList.Add(name, number);
         
     }
     public void Utryckning()

@@ -3,6 +3,7 @@ using System;
 using System.Diagnostics.Contracts;
 using System.IO.Pipes;
 using System.Diagnostics;
+using System.Configuration.Assemblies;
 
 class Personal
 {
@@ -17,27 +18,34 @@ class Personal
     }
     public Personal()
     {
-        JsonLoad();
         pList = new List<Personal>();
-        JsonSave();
     }
     public void Add(string name, int number)
     {
         pList.Add(new Personal(name, number));
+    }
+}
+class JsonPersonal
+{
+    Personal p = new Personal();
+    List<Personal> pList;
+    public void PersonalList()
+    {
+        new List<Personal>();
+    }
+    public void addToJsonPlist()
+    {
+        pList.Add(p);
     }
     public void JsonSave()
     {
         string jsonPersonal = JsonSerializer.Serialize(pList);
         File.WriteAllText("personal.json", jsonPersonal);
     }
-    public void JsonLoad()
+    public List<Personal> JsonLoad()
     {
         string jsonPersonal = File.ReadAllText("personal.json");
         pList = JsonSerializer.Deserialize<List<Personal>>(jsonPersonal);
-    }
-    public List<Personal> ShowPersonal()
-    {
-        JsonLoad();
         return pList;
     }
 }

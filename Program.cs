@@ -12,7 +12,8 @@ class Meny
 {
     public static void Main()
     {
-        
+        JsonPersonal jsonP = new JsonPersonal();
+        JsonUtryck JsonU = new JsonUtryck();
         Rapport rapportInstance = new Rapport(); //för att kunna kalla på metoden
         Personal personalList = new Personal();
         Utryckning utryck = new Utryckning();
@@ -33,12 +34,14 @@ class Meny
                     userInterface.RapportUser();
                     break;
                 case "2":
-
+                    jsonP.JsonLoad();
                     userInterface.PersonalUser();
+                    jsonP.JsonSave();
                     break;
                 case "3":
-
+                    JsonU.JsonLoadUtryck();
                     userInterface.Utryckning();
+                    JsonU.JsonSaveUtryck();
                     break;
                 case "4":
 
@@ -65,7 +68,7 @@ class Meny
                                 break;
                             case "2":
                                 
-                                List <Personal> pList = personalList.ShowPersonal();
+                                List<Personal> pList = jsonP.JsonLoad();
                                 for(int i = 0; i < pList.Count; i++)
                                 {
                                     Console.WriteLine($"{pList[i].Name}, {pList[i].Number}");
@@ -73,7 +76,7 @@ class Meny
                                 break;
                             case "3":
 
-                                List<Utryckning> utryckList = utryck.ShowUtlist();
+                                List<Utryckning> utryckList = JsonU.JsonLoadUtryck();
                                 for(int i = 0; i < utryckList.Count; i++)
                                     {
                                         Console.WriteLine($"Brott: {utryckList[i].Crime} Plats: {utryckList[i].Place} Poliser: {utryckList[i].Cops} Tid: {utryckList[i].Time}");
