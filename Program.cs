@@ -12,11 +12,9 @@ class Meny
 {
     public static void Main()
     {
-        JsonPersonal jsonP = new JsonPersonal();
-        JsonUtryck JsonU = new JsonUtryck();
         Rapport rapportInstance = new Rapport(); //för att kunna kalla på metoden
-        Personal personalList = new Personal();
-        Utryckning utryck = new Utryckning();
+        PersonalList personalList = new PersonalList();
+        UtryckList utryck = new UtryckList();
         UserInterface userInterface = new UserInterface();
         
         while(true)
@@ -34,14 +32,14 @@ class Meny
                     userInterface.RapportUser();
                     break;
                 case "2":
-                    jsonP.JsonLoad();
+                    personalList.JsonLoad();
                     userInterface.PersonalUser();
-                    jsonP.JsonSave();
+                    personalList.JsonSave();
                     break;
                 case "3":
-                    JsonU.JsonLoadUtryck();
+                    utryck.JsonLoadUtryck();
                     userInterface.Utryckning();
-                    JsonU.JsonSaveUtryck();
+                    utryck.JsonSaveUtryck();
                     break;
                 case "4":
 
@@ -68,7 +66,7 @@ class Meny
                                 break;
                             case "2":
                                 
-                                List<Personal> pList = jsonP.JsonLoad();
+                                List<Personal> pList = personalList.JsonLoad();
                                 for(int i = 0; i < pList.Count; i++)
                                 {
                                     Console.WriteLine($"{pList[i].Name}, {pList[i].Number}");
@@ -76,7 +74,7 @@ class Meny
                                 break;
                             case "3":
 
-                                List<Utryckning> utryckList = JsonU.JsonLoadUtryck();
+                                List<Utryckning> utryckList = utryck.JsonLoadUtryck();
                                 for(int i = 0; i < utryckList.Count; i++)
                                     {
                                         Console.WriteLine($"Brott: {utryckList[i].Crime} Plats: {utryckList[i].Place} Poliser: {utryckList[i].Cops} Tid: {utryckList[i].Time}");

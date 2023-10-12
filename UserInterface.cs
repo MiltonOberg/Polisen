@@ -4,8 +4,8 @@ using System;
 public class UserInterface
 {
     Rapport rapportList = new Rapport(); //för att kunna kalla på metoden
-    Personal pList = new Personal();
-    Utryckning utryck = new Utryckning();
+    PersonalList pList = new PersonalList();
+    UtryckList utryck = new UtryckList();
 
 
     public void RapportUser()
